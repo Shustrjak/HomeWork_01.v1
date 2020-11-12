@@ -18,9 +18,9 @@ def get_html(url, params=None):
 
 def get_content(html):
     soup = BeautifulSoup(html, 'html.parser')
-    # print(soup)
+
     items = soup.find_all('a', class_='organic__url')
-    # print(items)
+
     max_pages = soup.find('div', class_=system_class)
     print(max_pages)
     name_dict = []
@@ -28,9 +28,9 @@ def get_content(html):
         name_dict.append({
             item.find('div', class_='organic__url-text').get_text(strip=True): item.get('href'),
         })
-    # return name_dict
+
     print(name_dict, sep="\n")
-    # print(len(name_dict))
+
 
 
 def parse():
